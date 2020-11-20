@@ -8,10 +8,8 @@ Collection of common utility classes
 * [Command Listener and Execution Stats](#command-utils)
 
 ## Requirements
-- [![Minimum PHP Version](https://img.shields.io/badge/php-%3E=7.4-8892BF.svg)](https://php.net/)
-<img src="https://www.php.net/images/logos/new-php-logo.svg" width="35">
-- [![Composer](https://img.shields.io/badge/-composer-A16F22)](https://getcomposer.org)
-<img src="https://getcomposer.org/img/logo-composer-transparent.png" width="25">
+- [![Minimum PHP Version](https://img.shields.io/badge/php-%3E=7.4-8892BF.svg)](https://php.net/) <img src="https://www.php.net/images/logos/new-php-logo.svg" width="35">
+- [![Composer](https://img.shields.io/badge/-composer-A16F22)](https://getcomposer.org) <img src="https://getcomposer.org/img/logo-composer-transparent.png" width="25">
 
 ## DI Container
 Helper class over the [php-di](https://php-di.org/doc/) libary.
