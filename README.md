@@ -36,9 +36,9 @@ Example `di-config.php` file:
 ```
 return [
     ClientInterface::class => autowire(Client::class),
-    ConfigParser::class => factory(
+    ConfigIniParser::class => factory(
         function () {
-            return ConfigParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');
+            return ConfigIniParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');
         }
     ),
 ];
@@ -51,5 +51,31 @@ Container::setDefinitionsFilePath(__DIR__ . DIRECTORY_SEPARATOR . 'di-config.php
 ```
 
 ## Config Parser
+Parser for config ini files.
+
+Example of `config.ini` file:
+```
+[database]
+; this is a comment
+host = "localhost"
+name = "my_db"
+
+[owner]
+
+name=John Doe
+organization=Acme Inc.
+
+[settings]
+data[] = "1"
+data[] = "2"
+```
+
+#### Usage
+It requires the path to the config ini file.
+```
+$config = ConfigIniParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'config.ini');
+$databaseName = $config->database->name;
+$ownerOrganization = $config->owner->organization;
+```
 
 ## Command Utils
