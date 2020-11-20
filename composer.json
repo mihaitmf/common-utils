@@ -32,5 +32,10 @@
     "psr-4": {
       "CommonUtils\\Tests\\": "test/"
     }
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit --debug --verbose --configuration phpunit.xml --testsuite tests"
+    ]
   }
 }
