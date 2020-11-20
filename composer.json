@@ -35,7 +35,7 @@
   },
   "scripts": {
     "test": [
-      "vendor/bin/phpunit --debug --verbose --configuration phpunit.xml --testsuite tests"
+      "vendor/bin/phpunit --testdox --configuration phpunit.xml --testsuite tests"
     ]
   }
 }
