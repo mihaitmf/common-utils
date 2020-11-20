@@ -1,8 +1,14 @@
 # Common-Utils project
+[![Github Workflow Status](https://github.com/mihaitmf/common-utils/workflows/PHP%20Composer%20Tests/badge.svg)](https://github.com/mihaitmf/common-utils/actions?query=workflow%3A%22PHP+Composer+Tests%22)
+
 Collection of common utility classes 
 * [DI Container](#di-container)
 * [Config Parser](#config-parser)
 * [Command Listener and Execution Stats](#command-utils)
+
+## Requirements
+- [![Minimum PHP Version](https://img.shields.io/badge/php-%3E=7.4-8892BF.svg)](https://php.net/)
+- `composer`
 
 ## DI Container
 Helper class over the [php-di](https://php-di.org/doc/) libary.
