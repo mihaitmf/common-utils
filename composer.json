@@ -1,0 +1,36 @@
+{
+  "name": "mihaitmf/common-utils",
+  "description": "Collection of common utility classes: DI Container, Config Parser, Command",
+  "keywords": ["common-utils", "common", "utils", "utility", "di", "container", "config", "command", "mihaitmf"],
+  "homepage": "https://github.com/mihaitmf/common-utils",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Mihai Tmf",
+      "email": "mihai.tmf@gmail.com",
+      "homepage": "https://github.com/mihaitmf",
+      "role": "Owner"
+    }
+  ],
+  "config": {
+    "vendor-dir": "vendor"
+  },
+  "require": {
+    "php": "^7.4",
+    "php-di/php-di": "^6",
+    "doctrine/annotations": "^1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "autoload": {
+    "psr-4": {
+      "CommonUtils\\": ["src/"]
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CommonUtils\\Tests\\": "test/"
+    }
+  }
+}
