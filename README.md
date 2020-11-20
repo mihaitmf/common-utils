@@ -1,12 +1,12 @@
 # Common-Utils project
 Collection of common utility classes 
-
-Examples:
 * [DI Container](#di-container)
 * [Config Parser](#config-parser)
 * [Command Listener and Execution Stats](#command-utils)
 
 ## DI Container
+Helper class over the [php-di](https://php-di.org/doc/) libary.
+
 Get class instance with all dependencies injected (autowired).
 
 #### Usage:
