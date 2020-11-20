@@ -14,7 +14,7 @@ class ContainerTest extends TestCase
 {
     private const DEFINITIONS_FILE_PATH = __DIR__ . DIRECTORY_SEPARATOR . 'TestClass' . DIRECTORY_SEPARATOR . 'di-config.php';
 
-    public function testContainerGet(): void
+    public function testContainerGetSuccess(): void
     {
         Container::setDefinitionsFilePath(self::DEFINITIONS_FILE_PATH);
 
@@ -35,7 +35,7 @@ class ContainerTest extends TestCase
         self::assertSame($expectedResult, $actualResult, 'Container::get did not return the correct instance');
     }
 
-    public function testSimpleContainerGetWithoutDefinitionsFile(): void
+    public function testContainerGetWithoutDefinitionsFile(): void
     {
         $object = Container::get(TestClassWithoutDependencies::class);
 
@@ -46,7 +46,7 @@ class ContainerTest extends TestCase
         );
     }
 
-    public function testContainerMake(): void
+    public function testContainerMakeSuccess(): void
     {
         Container::setDefinitionsFilePath(self::DEFINITIONS_FILE_PATH);
 
@@ -73,7 +73,7 @@ class ContainerTest extends TestCase
         self::assertSame($expectedResult, $actualResult, 'Container::make did not return the correct instance');
     }
 
-    public function testSimpleContainerMakeWithoutDefinitionsFile(): void
+    public function testContainerMakeWithoutDefinitionsFile(): void
     {
         $stringDependency = 'My string from container-make';
 
