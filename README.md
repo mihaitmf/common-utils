@@ -7,15 +7,19 @@ Collection of common utility classes
 ## DI Container
 Helper class over the [php-di](https://php-di.org/doc/) libary.
 
+#### Usage
+##### Container::get()
 Get class instance with all dependencies injected (autowired).
-
-#### Usage:
 ```
 $myClass = Container::get(MyClass::class);
 $myClass->myMethod();
 ```
 
-If you need to inject some of the arguments manually, use `Container::make()`:
+##### Container::make()
+Useful for creating objects that should not be stored inside the container
+(i.e. that are not services, or that are not `stateless`), but that have dependencies.
+
+It is also useful if you want to override some parameters of an object's constructor.
 ```
 $myClass = Container::make(MyClass::class, [
     'user' => 'mihaitmf',
