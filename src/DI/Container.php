@@ -11,7 +11,7 @@ use InvalidArgumentException;
 class Container
 {
     private static ?DIContainer $container = null;
-    private static string $definitionsFilePath;
+    private static ?string $definitionsFilePath = null;
 
     private function __construct()
     {
@@ -20,8 +20,11 @@ class Container
     public static function setDefinitionsFilePath(string $definitionsFilePath): void
     {
         if (!is_file($definitionsFilePath)) {
-            throw new InvalidArgumentException("The DI Container definitions config file could not be found at: $definitionsFilePath");
+            throw new InvalidArgumentException(
+                "The DI Container definitions config file could not be found at path: $definitionsFilePath"
+            );
         }
+
         self::$definitionsFilePath = $definitionsFilePath;
     }
 
@@ -41,11 +44,11 @@ class Container
      * @param string $name
      * @param array $parameters Map<string, string> = <parameterName => className>
      *
-     * @return object
+     * @return mixed
      * @throws DependencyException
      * @throws NotFoundException
      */
-    public static function make(string $name, array $parameters = []): object
+    public static function make(string $name, array $parameters = [])
     {
         return self::getContainer()->make($name, $parameters);
     }
@@ -63,7 +66,10 @@ class Container
     {
         $containerBuilder = new ContainerBuilder();
         $containerBuilder->useAnnotations(true);
-        $containerBuilder->addDefinitions(self::$definitionsFilePath);
+
+        if (is_file(self::$definitionsFilePath)) {
+            $containerBuilder->addDefinitions(self::$definitionsFilePath);
+        }
 
         return $containerBuilder->build();
     }
