@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class ConfigIniParserTest extends TestCase
 {
-    public function testParseIniFile(): void
+    public function testParseIniFileSuccess(): void
     {
         $config = ConfigIniParser::fromFile(__DIR__ . DIRECTORY_SEPARATOR . 'test_config_sample.ini');
 
