@@ -5,7 +5,7 @@
 Collection of common utility classes 
 * [DI Container](#di-container)
 * [Config Parser](#config-parser)
-* [Command Listener and Execution Stats](#command-utils)
+* [Command Utils](#command-utils)
 
 ## Requirements
 - [![Minimum PHP Version](https://img.shields.io/badge/php-%3E=7.4-8892BF.svg)](https://php.net/) <img src="https://www.php.net/images/logos/new-php-logo.svg" width="35">
