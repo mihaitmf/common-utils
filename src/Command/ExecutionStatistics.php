@@ -7,8 +7,8 @@ class ExecutionStatistics
     private const PRINT_FORMAT = "\nExecution time: %.4f seconds\nMemory peak usage: %.2f MB\n";
 
     private float $startTime;
-    private float $executionTimeSeconds;
-    private float $memoryMegabytesUsed;
+    private ?float $executionTimeSeconds = null;
+    private ?float $memoryMegabytesUsed = null;
 
     public static function printStats(float $startTime): void
     {
