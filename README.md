@@ -143,6 +143,18 @@ return [
 ];
 ```
 
+#### Output example
+```
+[2020-11-21 02:34:35] Command <command name> started...
+
+..... <command output> .....
+
+Execution time: 0.7749 seconds
+Memory peak usage: 6.00 MB
+
+[2020-11-21 02:34:36] Command <command name> finished with exit code 0.
+```
+
 ### Script Execution Statistics
 Helper class that can calculate and print some script execution statistics:
 * execution time (in seconds)
@@ -183,6 +195,12 @@ require_once __DIR__ . '/vendor/autoload.php';
 register_shutdown_function(function () use ($startTime) {
     ExecutionStatistics::printStats($startTime);    
 });
+```
+
+#### Output example
+```
+Execution time: 0.7749 seconds
+Memory peak usage: 6.00 MB
 ```
 
 ### Enjoy!
