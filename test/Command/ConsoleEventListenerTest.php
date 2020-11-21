@@ -10,7 +10,10 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Event\ConsoleCommandEvent;
 use Symfony\Component\Console\Event\ConsoleTerminateEvent;
+use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ConsoleEventListenerTest extends TestCase
@@ -114,6 +117,47 @@ class ConsoleEventListenerTest extends TestCase
             );
 
         $this->consoleEventListener->onCommandFinish($event);
+    }
+
+    public function testPrintLogsOnCommandBeginAndFinish(): void
+    {
+        $consoleEventListener = new ConsoleEventListener(
+            new ExecutionStatistics(),
+            new ConsoleOutput()
+        );
+
+        $commandName = 'my test command';
+        $exitCode = 0;
+
+        $startEvent = new ConsoleCommandEvent(
+            new Command($commandName),
+            new ArgvInput(),
+            new NullOutput()
+        );
+        $finishEvent = new ConsoleTerminateEvent(
+            new Command($commandName),
+            new ArgvInput(),
+            new NullOutput(),
+            $exitCode
+        );
+
+        ob_start();
+        $consoleEventListener->onCommandBegin($startEvent);
+        $consoleEventListener->onCommandFinish($finishEvent);
+        $actualOutput = ob_get_clean();
+
+        $expectedOutput = sprintf(
+            "[%s] Command %s started...\n\nExecution time: %.4f seconds\nMemory peak usage: %.2f MB\n\n[%s] Command %s finished with exit code %s.",
+            date('Y-m-d H:i:s'),
+            $commandName,
+            0.0001,
+            6.00,
+            date('Y-m-d H:i:s'),
+            $commandName,
+            $exitCode
+        );
+
+        self::assertSame($expectedOutput, $actualOutput, 'Printed output is different than expected');
     }
 
     /**
