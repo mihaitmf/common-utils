@@ -4,12 +4,12 @@ php:
   - 7.4
 
 stages:
-  - composer install
-  - tests
+  - Composer install
+  - Run tests
 
 jobs:
   include:
-    - stage: composer install
+    - stage: Composer install
       script: composer install
-    - stage: tests
+    - stage: Run Tests
       script: composer run-script test
