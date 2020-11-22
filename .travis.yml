@@ -3,13 +3,13 @@ language: php
 php:
   - 7.4
 
-matrix:
-  fast_finish: true
-  allow_failures:
-    - php: 7.4
-
-install:
+stages:
   - composer install
+  - tests
 
-script:
-  - composer run-script test
+jobs:
+  include:
+    - stage: composer install
+      script: composer install
+    - stage: tests
+      script: composer run-script test
