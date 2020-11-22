@@ -2,14 +2,18 @@ name: PHP Composer CI
 
 on:
   push:
-    branches: [ main ]
+    paths-ignore:
+      - '**/*.md'
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - '**/*.md'
+
+defaults:
+  runs-on: ubuntu-latest
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -28,7 +32,7 @@ jobs:
 
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
-      run: composer install --prefer-dist --no-progress --no-suggest
+      run: composer install --optimize-autoloader
 
     - name: Run test suite
       run: composer run-script test

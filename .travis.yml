@@ -10,6 +10,10 @@ stages:
 jobs:
   include:
     - stage: Composer install
-      script: composer install
+      script: composer install --optimize-autoloader
+      cache:
+        directories:
+          - vendor
+
     - stage: Run Tests
       script: composer run-script test
