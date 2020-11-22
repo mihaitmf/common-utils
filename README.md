@@ -1,6 +1,6 @@
 # Common-Utils project
 [![Github Workflow Status](https://github.com/mihaitmf/common-utils/workflows/PHP%20Composer%20Tests/badge.svg)](https://github.com/mihaitmf/common-utils/actions?query=workflow%3A%22PHP+Composer+Tests%22)
-[![Travis Build Status](https://travis-ci.com/mihaitmf/common-utils.svg?branch=main)](https://travis-ci.com/mihaitmf/common-utils)
+[![Travis Build Status](https://travis-ci.org/mihaitmf/common-utils.svg?branch=main)](https://travis-ci.org/mihaitmf/common-utils)
 
 Collection of common utility classes 
 * [DI Container](#di-container)
