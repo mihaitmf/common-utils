@@ -1,10 +1,30 @@
 <?php
-
+// see https://confluence.jetbrains.com/display/PhpStorm/PhpStorm+Advanced+Metadata
+// and https://php-di.org/doc/ide-integration.html#phpstorm-integration
 namespace PHPSTORM_META {
 
-    $STATIC_METHOD_TYPES = [
-        \CommonUtils\DI\Container::get('') => [
-            "" == "@",
-        ],
-    ];
+    override(
+        \Psr\Container\ContainerInterface::get(0),
+        map(
+            [
+                '' => '@',
+            ]
+        )
+    );
+    override(
+        \DI\Container::get(0),
+        map(
+            [
+                '' => '@',
+            ]
+        )
+    );
+    override(
+        \DI\FactoryInterface::make(0),
+        map(
+            [
+                '' => '@',
+            ]
+        )
+    );
 }
